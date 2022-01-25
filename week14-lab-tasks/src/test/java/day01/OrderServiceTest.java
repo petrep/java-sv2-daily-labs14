@@ -93,4 +93,10 @@ class OrderServiceTest {
 	void getOrdersWithProductInCategoryTest() {
 		assertEquals(4, orderService.getOrdersWithProductInCategory("Book").size());
 	}
+
+	@Test
+	void findProductsOverPriceTest() {
+		List<Product> result = orderService.findProductsOverPrice(400);
+		assertEquals(2, result.size());
+	}
 }

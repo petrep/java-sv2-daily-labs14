@@ -69,4 +69,18 @@ public class OrderService {
 			.collect(Collectors.toList());
 	}
 
+	public List<Product> findProductsOverPrice(int amount) {
+		return orders.stream().flatMap(o->o.getProducts().stream())
+			.filter(p->p.getPrice()>amount)
+			.distinct()
+			.toList();
+	}
+
+	public List<String> methodReferenceTest() {
+		return orders.stream()
+			.map(Order::getStatus)
+			.toList();
+
+	}
+
 }
